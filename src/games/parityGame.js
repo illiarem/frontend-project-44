@@ -1,5 +1,5 @@
 import isEven from '../isEven.js'
-import getRandomNumber from '../getRandomNumber.js'
+import { getRandomNumber } from '../randomEntities.js'
 import app from '../index.js'
 
 const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".'

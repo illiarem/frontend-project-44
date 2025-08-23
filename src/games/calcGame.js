@@ -1,6 +1,5 @@
 import app from '../index.js'
-import getRandomNumber from '../getRandomNumber.js'
-import getRandomSign from '../getRandomSign.js'
+import { getRandomNumber, getRandomSign } from '../randomEntities.js'
 
 const gameRules = 'What is the result of the expression?'
 let randomNum1

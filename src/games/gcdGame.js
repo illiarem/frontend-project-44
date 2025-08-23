@@ -1,5 +1,5 @@
 import app from '../index.js'
-import getRandomNumber from '../getRandomNumber.js'
+import { getRandomNumber } from '../randomEntities.js'
 
 const gameRules = 'Find the greatest common divisor of given numbers.'
 let randomNum1
