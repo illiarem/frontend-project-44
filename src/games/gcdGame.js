@@ -15,6 +15,9 @@ const askAQuestion = () => {
 const getAnAnswer = () => {
   let gcd = randomNum1
   let divisor = randomNum2
+
+  if (divisor === 0) return gcd
+
   let remainder
 
   while (remainder !== 0) {
