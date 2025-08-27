@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync'
 
-export default (gameRules, askAQuestion, getAnAnswer) => {
+export default (gameRules, getQuestion, getAnswer) => {
   console.log('Welcome to the Brain Games!')
   const name = readlineSync.question('May I have your name? ')
   console.log(`Hello, ${name}!`)
@@ -8,9 +8,9 @@ export default (gameRules, askAQuestion, getAnAnswer) => {
   let winScore = 0
 
   while (winScore < 3) {
-    console.log(askAQuestion())
+    console.log(`Question: ${getQuestion()}`)
     const playerResponse = readlineSync.question('Your answer: ').toLowerCase()
-    const correctAnswer = getAnAnswer()
+    const correctAnswer = getAnswer()
 
     if (playerResponse === correctAnswer) {
       console.log('Correct!')
