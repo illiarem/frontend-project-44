@@ -2,13 +2,11 @@ import getRandom from '../random.js'
 import app from '../index.js'
 
 const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-const gameData = []
 
-const getQuestion = () => {
+const getGameData = () => {
   const randomNumber = getRandom()
-  gameData.length = 0
-  gameData.push(randomNumber)
-  return randomNumber
+  const answer = getAnswer(randomNumber)
+  return [randomNumber, answer]
 }
 
 const isPrime = (num) => {
@@ -20,10 +18,6 @@ const isPrime = (num) => {
   return true
 }
 
-const getAnswer = () => {
-  const [randomNumber] = gameData
-  const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no'
-  return correctAnswer
-}
+const getAnswer = randomNumber => isPrime(randomNumber) ? 'yes' : 'no'
 
-export default () => app(gameRules, getQuestion, getAnswer)
+export default () => app(gameRules, getGameData)

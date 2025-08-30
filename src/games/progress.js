@@ -2,17 +2,16 @@ import getRandom from '../random.js'
 import app from '../index.js'
 
 const gameRules = 'What number is missing in the progression?'
-const gameData = []
 
 const getCurrentElement = (start, step, index) => start + index * step
 
-const getQuestion = () => {
+const getGameData = () => {
   const seqLength = getRandom(5, 10)
   const startNum = getRandom()
   const step = getRandom(1, 5)
   const skipIndex = getRandom(0, seqLength - 1)
   let question = ''
-  gameData.length = 0
+  let answer
 
   for (let i = 0; i < seqLength; i++) {
     const currentElement = getCurrentElement(startNum, step, i)
@@ -20,13 +19,11 @@ const getQuestion = () => {
       question = `${question} ${currentElement}`
     }
     else {
-      gameData.push(currentElement)
+      answer = String(currentElement)
       question = `${question} ..`
     }
   }
-  return question.trim()
+  return [question.trim(), answer]
 }
 
-const getAnswer = () => String(gameData[0])
-
-export default () => app(gameRules, getQuestion, getAnswer)
+export default () => app(gameRules, getGameData)
