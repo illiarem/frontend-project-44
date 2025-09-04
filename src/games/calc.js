@@ -14,22 +14,16 @@ const getGameData = () => {
 }
 
 const getAnswer = (randomNum1, randomNum2, randomSign) => {
-  let answer
-
   switch (randomSign) {
     case '+':
-      answer = randomNum1 + randomNum2
-      break
+      return randomNum1 + randomNum2
     case '-':
-      answer = randomNum1 - randomNum2
-      break
+      return randomNum1 - randomNum2
     case '*':
-      answer = randomNum1 * randomNum2
-      break
+      return randomNum1 * randomNum2
     default:
       throw new Error(`Unknown sign: '${randomSign}'!`)
   }
-  return answer
 }
 
 export default () => app(gameRules, getGameData)
