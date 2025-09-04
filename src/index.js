@@ -5,8 +5,9 @@ export default (gameRules, getGameData) => {
   const name = readlineSync.question('May I have your name? ')
   console.log(`Hello, ${name}!`)
   console.log(gameRules)
+  const numberOfGames = 3
 
-  for (let winScore = 0; winScore < 3; winScore += 1) {
+  for (let winScore = 0; winScore < numberOfGames; winScore += 1) {
     const [question, answer] = getGameData()
     console.log(`Question: ${question}`)
     const playerResponse = readlineSync.question('Your answer: ').toLowerCase()
